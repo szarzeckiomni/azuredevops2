@@ -3,17 +3,17 @@
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 schedules:
-- cron: '*/27 * * * *'
+- cron: '*/59 * * * *'
   displayName: Every 15 minutes
   branches:
     include:
-    - main
+    - error
   always: true
 variables:
   global_variable: "global_variable" 
 
 trigger:
-- main
+- error
 
 pr:
   branches:
@@ -64,7 +64,7 @@ stages:
   - job: J_C1
     pool: Azure Pipelines
     steps:
-      - bash: echo "Hello, world!"
+      - bash: sh gy.sh
         displayName: 'Step 1 from J_C1'
 
 
