@@ -25,7 +25,7 @@ stages:
   jobs:
  
   - job: J_A1
-    pool: Azure Pipelines
+    pool: MyAgents
     variables:
      job_variable1: "job_variable1"
     steps:
@@ -34,7 +34,7 @@ stages:
     - bash: echo "##vso[task.setvariable variable=myOutputVar;isoutput=true]this is from job A"
       displayName: passOutput
   - job: J_A2
-    pool: Azure Pipelines
+    pool: MyAgents
     steps:
     - task: Bash@3
       inputs:
@@ -50,12 +50,12 @@ stages:
 - stage: S_B
   jobs:
   - job: J_B1
-    pool: Azure Pipelines
+    pool: MyAgents
     steps:
       - bash: echo "Hello, world!"
         displayName: 'Step 1 from J_B1'
   - job: J_B2
-    pool: Azure Pipelines
+    pool: MyAgents
     steps:
       - bash: sleep 30
         displayName: 'Step 2 from J_B2'
@@ -63,7 +63,7 @@ stages:
 - stage: S_C
   jobs:
   - job: J_C1
-    pool: Azure Pipelines
+    pool: MyAgents
     steps:
       - bash: echo "Hello, world!"
         displayName: 'Step 1 from J_C1'
